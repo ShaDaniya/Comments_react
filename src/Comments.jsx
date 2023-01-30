@@ -33,8 +33,9 @@ useEffect(() => {
       setNewComment={setNewComment}
       handleSubmit={handleSumbitNewComment}/>
       <ul>
-        {comment.map((item) => 
-        <Comment name={item.text} key={item.id.toString()}/>)}
+        {comment.map((item) => (
+        <Comment name={item.text} key={item.id.toString()} className={comment[comment.length - 1] ? "red" : "green"}/>))
+        }
         </ul>
     </main>
   )
