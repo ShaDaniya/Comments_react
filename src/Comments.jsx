@@ -17,7 +17,7 @@ export const Comments = () => {
 
   const addComment = (nextComment) => {
     const id = comment.length ? comment[comment.length - 1].id + 1 : 1
-    const addedComment = { id: id, text: nextComment}
+    const addedComment = { id: id, text: nextComment, color: "green"}
     comment.push(addedComment)
     localStorage.setItem('comments list', JSON.stringify(comment))
   }
@@ -34,7 +34,7 @@ useEffect(() => {
       handleSubmit={handleSumbitNewComment}/>
       <ul>
         {comment.map((item) => (
-        <Comment name={item.text} key={item.id.toString()} className={comment[comment.length - 1] ? "red" : "green"}/>))
+        <Comment name={item.text} key={item.id.toString()} color={item.color}/>))
         }
         </ul>
     </main>

@@ -3,7 +3,7 @@ import { FaTrashAlt} from 'react-icons/fa'
 
 function Comment(props) {
   return (
-    <div>
+    <div className={props.color}>
         <p>{props.name}</p>
         <FaTrashAlt />
     </div>
