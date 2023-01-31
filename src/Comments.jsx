@@ -22,6 +22,12 @@ export const Comments = () => {
     localStorage.setItem('comments list', JSON.stringify(comment))
   }
 
+  const deleteComment = (id) => {
+    const updatedList = comment.filter((item) => item.id !==id)
+    setComment(updatedList)
+    localStorage.setItem('comments list', JSON.stringify(updatedList))
+  }
+
 useEffect(() => {
   setComment(JSON.parse(localStorage.getItem('comments list')))
 }, [])
@@ -34,7 +40,7 @@ useEffect(() => {
       handleSubmit={handleSumbitNewComment}/>
       <ul>
         {comment.map((item) => (
-        <Comment name={item.text} key={item.id.toString()} color={item.color}/>))
+        <Comment name={item.text} key={item.id.toString()} color={item.color} id={item.id} deleteComment={deleteComment}/>))
         }
         </ul>
     </main>

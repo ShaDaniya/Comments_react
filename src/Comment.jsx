@@ -5,7 +5,7 @@ function Comment(props) {
   return (
     <div className={props.color}>
         <p>{props.name}</p>
-        <FaTrashAlt />
+        <FaTrashAlt onClick={() => props.deleteComment(props.id)} role="button"/>
     </div>
   )
 }
